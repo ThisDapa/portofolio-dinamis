@@ -1,0 +1,38 @@
+{
+  "name": "portfolio-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run setup && node --watch src/server.js",
+    "setup": "node scripts/env.mjs && prisma generate && prisma migrate deploy && node prisma/seed.js",
+    "seed": "node prisma/seed.js",
+    "build": "prisma generate && eslint .",
+    "lint": "eslint .",
+    "test": "node --test tests/*.test.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "sharp": "^0.35.5",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "prisma": "^6.19.0",
+    "supertest": "^7.1.4"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.0"
+  }
+}
